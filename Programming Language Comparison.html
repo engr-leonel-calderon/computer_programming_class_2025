@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Language Comparison</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 30px;
+            min-height: 100vh;
+        }
+        
+        .poster {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            max-width: 1800px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.05) 10px,
+                rgba(255,255,255,0.05) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(0px) translateY(0px); }
+        }
+        
+        .title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .comparison-table {
+            padding: 0;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 25px 20px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-align: left;
+            border-right: 2px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        th:first-child {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            font-size: 1.3rem;
+            width: 200px;
+            text-align: center;
+        }
+        
+        th:last-child {
+            border-right: none;
+        }
+        
+        .lang-header {
+            position: relative;
+            text-align: center;
+            padding: 25px 15px;
+        }
+        
+        .python-header { background: linear-gradient(135deg, #3776ab, #ffd343); }
+        .java-header { background: linear-gradient(135deg, #ed8b00, #5382a1); }
+        .csharp-header { background: linear-gradient(135deg, #239120, #512bd4); }
+        .js-header { background: linear-gradient(135deg, #f7df1e, #323330); color: #323330; }
+        
+        .lang-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        td {
+            padding: 20px;
+            border-bottom: 1px solid #f0f4f8;
+            border-right: 1px solid #f0f4f8;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+        
+        td:last-child {
+            border-right: none;
+        }
+        
+        .aspect-cell {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            border-right: 3px solid #667eea;
+        }
+        
+        .content-cell {
+            font-size: 0.95rem;
+            color: #444;
+        }
+        
+        .pros {
+            color: #27ae60;
+        }
+        
+        .cons {
+            color: #e74c3c;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 5px 0;
+            border-radius: 8px;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .beginner { background: #d4edda; color: #155724; }
+        .intermediate { background: #fff3cd; color: #856404; }
+        .expert { background: #f8d7da; color: #721c24; }
+        
+        .trend-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .growing { background: linear-gradient(135deg, #56ab2f, #a8e6cf); color: white; }
+        .stable { background: linear-gradient(135deg, #4b79a1, #283e51); color: white; }
+        .steady { background: linear-gradient(135deg, #f093fb, #f5576c); color: white; }
+        .booming { background: linear-gradient(135deg, #ffd89b, #19547b); color: white; }
+        
+        .bullet-point {
+            position: relative;
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        
+        .bullet-point::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background: #f8f9ff;
+            transform: scale(1.002);
+            transition: all 0.3s ease;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 1400px) {
+            .title { font-size: 2.8rem; }
+            .subtitle { font-size: 1.2rem; }
+            table { font-size: 0.9rem; }
+            th, td { padding: 15px 12px; }
+        }
+        
+        @media (max-width: 1000px) {
+            .poster { margin: 10px; }
+            .title { font-size: 2.2rem; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 12px 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <h1 class="title">Programming Language Comparison</h1>
+            <p class="subtitle">Comprehensive Analysis of Popular Languages</p>
+        </div>
+        
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th class="lang-header python-header">
+                            <span class="lang-icon">🐍</span>
+                            Python
+                        </th>
+                        <th class="lang-header java-header">
+                            <span class="lang-icon">☕</span>
+                            Java
+                        </th>
+                        <th class="lang-header csharp-header">
+                            <span class="lang-icon">#️⃣</span>
+                            C#
+                        </th>
+                        <th class="lang-header js-header">
+                            <span class="lang-icon">⚡</span>
+                            JavaScript
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="aspect-cell">Type of Language</td>
+                        <td class="content-cell">High-level, interpreted, multi-paradigm (procedural, OOP, functional)</td>
+                        <td class="content-cell">High-level, compiled to bytecode (JVM), strongly typed, object-oriented with some functional features</td>
+                        <td class="content-cell">High-level, compiled to IL (CLR/.NET), strongly typed, OOP with functional features</td>
+                        <td class="content-cell">High-level, interpreted (browser) or JIT-compiled (Node.js), multi-paradigm with event-driven, OOP, functional</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="aspect-cell">OOP Support</td>
+                        <td class="content-cell">Yes (classes, inheritance, polymorphism, encapsulation, multiple inheritance via mixins)</td>
+                        <td class="content-cell">Yes (classic OOP, strong class-based design, interfaces, inheritance)</td>
+                        <td class="content-cell">Yes (classic OOP, interfaces, properties, LINQ, async/await)</td>
+                        <td class="content-cell">Yes (prototypes instead of classical inheritance, ES6 classes for syntactic sugar)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="aspect-cell">Common Usage (Nowadays)</td>
+                        <td class="content-cell">
+                            <div class="bullet-point">Data science, machine learning, web apps</div>
+                            <div class="bullet-point">Django, Flask, FastAPI, automation, scripting</div>
+                            <div class="bullet-point">AI research, education</div>
+                        </td>
+                        <td class="content-cell">
+                            <div class="bullet-point">Enterprise apps, Android development</div>
+                            <div class="bullet-point">Backend servers, large banking/finance systems, APIs</div>
+                        </td>
+                        <td class="content-cell">
+                            <div class="bullet-point">Enterprise apps, Windows desktop apps</div>
+                            <div class="bullet-point">Backend servers, Unity game development</div>
+                            <div class="bullet-point">Cloud services (Azure)</div>
+                        </td>
+                        <td class="content-cell">
+                            <div class="bullet-point">Web development (frontend & backend with Node.js)</div>
+                            <div class="bullet-point">Mobile apps (React Native), full-stack apps</div>
+                            <div class="bullet-point">Interactive websites</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="aspect-cell">Popular IDEs</td>
+                        <td class="content-cell">PyCharm, VS Code, Jupyter Notebook, Spyder</td>
+                        <td class="content-cell">IntelliJ IDEA, Eclipse, NetBeans, VS Code</td>
+                        <td class="content-cell">Visual Studio, JetBrains Rider, VS Code</td>
+                        <td class="content-cell">VS Code, WebStorm, Sublime Text, Atom</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="aspect-cell pros">Pros</td>
+                        <td class="content-cell pros">
+                            <div class="bullet-point">Easy syntax (beginner-friendly)</div>
+                            <div class="bullet-point">Huge libraries for AI/ML</div>
+                            <div class="bullet-point">Versatile (scripting to web to AI)</div>
+                            <div class="bullet-point">Strong community</div>
+                        </td>
+                        <td class="content-cell pros">
+                            <div class="bullet-point">Platform independent (JVM)</div>
+                            <div class="bullet-point">Very stable for enterprise apps</div>
+                            <div class="bullet-point">Mature ecosystem</div>
+                            <div class="bullet-point">Strong typing reduces runtime errors</div>
+                        </td>
+                        <td class="content-cell pros">
+                            <div class="bullet-point">Tight integration with Microsoft ecosystem</div>
+                            <div class="bullet-point">Excellent tooling (Visual Studio)</div>
+                            <div class="bullet-point">Powerful for enterprise apps</div>
+                            <div class="bullet-point">Good game dev (Unity)</div>
+                        </td>
+                        <td class="content-cell pros">
+                            <div class="bullet-point">Runs everywhere (browsers, servers)</div>
+                            <div class="bullet-point">Huge ecosystem (NPM)</div>
+                            <div class="bullet-point">Essential for web dev</div>
+                            <div class="bullet-point">Flexible programming styles</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="aspect-cell cons">Cons</td>
+                        <td class="content-cell cons">
+                            <div class="bullet-point">Slower execution (interpreted)</div>
+                            <div class="bullet-point">Weak mobile support</div>
+                            <div class="bullet-point">Can lead to messy code if not disciplined</div>
+                        </td>
+                        <td class="content-cell cons">
+                            <div class="bullet-point">Verbose syntax</div>
+                            <div class="bullet-point">Slower startup compared to compiled C/C++</div>
+                            <div class="bullet-point">Memory management can be heavy</div>
+                        </td>
+                        <td class="content-cell cons">
+                            <div class="bullet-point">Primarily tied to Windows/.NET (though cross-platform improved with .NET Core)</div>
+                            <div class="bullet-point">Verbose syntax</div>
+                        </td>
+                        <td class="content-cell cons">
+                            <div class="bullet-point">Not strongly typed (though TypeScript helps)</div>
+                            <div class="bullet-point">Asynchronous code can be complex</div>
+                            <div class="bullet-point">Security risks in poorly written code</div>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="aspect-cell">Level (Beginner/Intermediate/Expert)</td>
+                        <td class="content-cell">
+                            <span class="level-badge beginner">Beginner-friendly</span>, also powerful for experts
+                        </td>
+                        <td class="content-cell">
+                            <span class="level-badge intermediate">Mid to Expert</span> (requires strong OOP understanding)
+                        </td>
+                        <td class="content-cell">
+                            <span class="level-badge intermediate">Mid to Expert</span> (strong OOP and .NET ecosystem knowledge)
+                        </td>
+                        <td class="content-cell">
+                            <span class="level-badge beginner">Beginner to Mid</span> (easy start, but advanced async and functional patterns require expertise)
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="aspect-cell">Current Trend</td>
+                        <td class="content-cell">
+                            <span class="trend-badge growing">Growing rapidly</span> in AI, ML, automation
+                        </td>
+                        <td class="content-cell">
+                            <span class="trend-badge stable">Stable</span>, used in large enterprises, Android dev
+                        </td>
+                        <td class="content-cell">
+                            <span class="trend-badge steady">Steady</span>, strong in enterprises and game dev
+                        </td>
+                        <td class="content-cell">
+                            <span class="trend-badge booming">Booming</span> in full-stack, frontend, and cross-platform development
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="aspect-cell">Execution Platform</td>
+                        <td class="content-cell">Interpreted (CPython, PyPy, Jython)</td>
+                        <td class="content-cell">Compiled to JVM bytecode</td>
+                        <td class="content-cell">Compiled to CLR (.NET runtime)</td>
+                        <td class="content-cell">Interpreted/JIT in browsers & Node.js</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p>🚀 Choose the right language for your project and goals! Each has its strengths and ideal use cases.</p>
+        </div>
+    </div>
+</body>
+</html>
