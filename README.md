@@ -82,27 +82,13 @@ This repository contains a comprehensive collection of **codes**, **notes**, and
 
 Throughout this course, we'll be working with:
 
-| Language | Week(s) | Focus Area |
-|----------|---------|------------|
-| 🐍 **Python** | 1-4 | Fundamentals & Data Structures |
-| ☕ **Java** | 5-8 | Object-Oriented Programming |
-| #️⃣ **C#** | 9-12 | Enterprise Applications |
-| ⚡ **JavaScript** | 13-16 | Web Development |
+
 
 ## 📅 Course Timeline
 
 ```mermaid
 gantt
-    title Programming Course Progress
-    dateFormat  YYYY-MM-DD
-    section Fundamentals
-    Python Basics           :2024-01-01, 4w
-    section OOP
-    Java Programming        :2024-01-29, 4w
-    section Enterprise
-    C# Development          :2024-02-26, 4w
-    section Web Dev
-    JavaScript & Frameworks :2024-03-25, 4w
+
 ```
 
 ## 🎯 Learning Objectives
