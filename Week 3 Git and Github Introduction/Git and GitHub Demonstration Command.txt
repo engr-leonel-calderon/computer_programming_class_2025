@@ -1,0 +1,102 @@
+Git and GitHub Demonstration Commands - CMPE2025
+Engr. Leonel Calderon
+
+Scenario 1: Cloning an existing repository
+When a repository already exists on GitHub and you want to copy it to your local computer:
+
+git clone "https://thecopiedhttpurlfromyourrepo"
+
+Meaning: Creates a local copy of the GitHub repository on your computer.
+
+------------------------------------------------------------------------------------------
+
+Scenario 2: Switching to an existing branch
+When a branch already exists on GitHub and you want to switch to it locally:
+
+git fetch
+git branch
+git checkout branchname
+
+Meaning:
+git fetch updates your list of remote branches.
+git branch shows all branches.
+git checkout branchname switches your local working branch.
+
+------------------------------------------------------------------------------------------
+
+Scenario 3: Staying updated with the main branch
+Before working on your branch, make sure it’s updated with the latest changes from the main branch (or any base branch):
+
+git pull origin main
+
+or
+
+git pull origin submainbranch
+
+Meaning: Pulls (downloads) the latest updates from GitHub into your current local branch.
+
+------------------------------------------------------------------------------------------
+
+Scenario 4: Checking modified files
+After adding, editing, or deleting files, check what has changed:
+
+git status
+
+Meaning: Displays which files have been modified, added, or deleted.
+
+------------------------------------------------------------------------------------------
+
+Scenario 5: Staging your changes
+When you’re ready to include your changes for the next commit:
+
+git add "filename.extension"
+
+Meaning: Marks the file(s) to be included in the next commit.
+
+------------------------------------------------------------------------------------------
+
+Scenario 6: Removing a file from staging (not yet committed)
+If you accidentally added a file and want to unstage it:
+
+git rm "filename"
+
+Meaning: Removes the file from the staging area (before committing).
+
+
+------------------------------------------------------------------------------------------
+
+Scenario 7: Committing your changes
+Once your changes are ready to be saved:
+
+git commit -m "your message"
+
+Meaning: Saves your changes with a descriptive message.
+
+------------------------------------------------------------------------------------------
+
+Scenario 8: Temporarily excluding or reverting a committed file
+If you want to temporarily remove a committed file from being pushed:
+
+git stash push "filename"
+
+Meaning: Temporarily hides changes to that file while keeping your local branch clean.
+
+
+------------------------------------------------------------------------------------------
+Scenario 9: Pushing your changes
+When you’re ready to upload your committed changes to GitHub:
+
+git push origin branchname
+
+Meaning: Sends your local commits to the specified branch on GitHub.
+
+------------------------------------------------------------------------------------------
+
+Scenario 10: Exiting the Git shell editor
+If you encounter the Git shell editor (usually after pulling or merging changes):
+
+Press Esc
+Type :wq
+Press Enter
+
+Meaning: :wq means write and quit — it saves and exits the shell editor.
