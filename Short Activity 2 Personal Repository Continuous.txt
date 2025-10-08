@@ -1,0 +1,14 @@
+Short Activity 2: Personal Repository Update (Continuous)
+Instructions
+
+1. Navigate to the workspace where you cloned your personal private repository from the Week 3 lesson.
+2. Add all the files and code created during the Week 4 lecture on IDE familiarization.
+3. Push these changes to your personal repository.
+
+Submission Requirement
+
+Add me as well as collaborator using the email: enchanteur04@gmail.com
+
+Ongoing Requirement
+From this point forward, all code written in subsequent class meetings must be pushed to this repository. 
+This allows me to monitor that everyone is practicing the concepts being taught.

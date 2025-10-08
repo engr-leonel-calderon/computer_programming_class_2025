@@ -1,0 +1,36 @@
+Short Activity 1: GitHub Collaboration and Branching
+Instructions
+
+Team Formation
+1. Select at least 2 classmates to be your collaborators.
+2. Important: If you have already been selected as a collaborator by another classmate, you do not need to create your own repository or select additional collaborators. You can either be the repository owner who invites collaborators OR a collaborator who is invited—choose only one role.
+
+Repository Setup---------------------------------------------------
+3.The repository owner must add two collaborators to their GitHub repository.
+4. Once added, all three members (owner + 2 collaborators) should create their own individual branches on GitHub.
+
+Local Development-------------------------------------------------
+5. On your local machine, each team member must:
+-> Switch to their own branch
+-> Add at least 2 different files (for example: a text file and a CSV file)
+-> Push the changes to their respective branches on GitHub
+
+
+
+Pull Request Workflow
+First Collaborator:
+6. The first collaborator will generate a pull request but should not merge it.
+7. The repository owner should review and merge this pull request.
+8. After merging, both the repository owner and the second collaborator should pull the changes from the main branch and push updates to their own branches.
+Second Collaborator:
+9. The second collaborator will now create a pull request but should not merge it.
+10. The repository owner should review, approve, and merge this pull request.
+11. Both the repository owner and the first collaborator should pull these changes and push updates to their own branches.
+Repository Owner:
+12. Finally, the repository owner will create their own pull request and approve it themselves. (Note: This is not best practice, but acceptable for this demonstration activity.)
+13. Both collaborators should pull these changes and push updates to their own branches.
+
+Expected Outcome
+By the end of this activity, all branches (main branch and all three individual branches) should contain the same files added by each team member.
+Submission Requirement
+Add the instructor as a collaborator using the email: enchanteur04@gmail.com
