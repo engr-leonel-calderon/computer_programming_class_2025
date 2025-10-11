@@ -1,0 +1,78 @@
+str(anyValue) - convert other datatype to string value
+
+len(strValue) - return int length of strValue (how may chars)
+
+strValue[index] - return char based on given index(int)
+
+strValue.upper() - convert each letter to upper case
+
+strValue.lower() - convert each letter to lower case
+
+strValue.capitalize() - convert first letter of each word to upper case
+
+strValue.split("subStr") - split string based on given char or substring return list
+
+strValue.replace("subStr1", "subStr2") - replace substr1 by substr2
+
+strValue.count("subStr") - count the char or substr present on string
+
+strValue.index("char") - return the lowest index where char  is found
+
+strValue.index("char", start, end) - return the lowest index where char  is found within range
+
+strValue[start:end] - return substring or partial part of string based on include:exclude chars
+
+strValue[start:end:step] - return substring or partial part of string based on include:exclude chars with steps
+
+
+
+
+
+
+
+Numeric Data Type
+
+Integer (-3, 0, 232)
+Float (23.2323)
+Complex (25 + 45j)
+
+Arithmetic Operation
++ - Add
+- - Subtract
+* - Multiplication
+/ - Division
+% - Modulus - return remainder from division
+** - Exponent
+
+import math (built in modules for math related operation (trigonometry, geometry, etc.)
+
+
+Boolean
+True or False without double or single quote
+"True" and "False" are Strings
+1 and 0 are Integers
+
+Boolean - result of comparison
+
+Comparison Operator
+== equal 
+!= not equal
+>= greater than or equal
+> greater than
+< less than
+<= less than or equal
+
+Membership and Identity Operator
+in, not in, is, is not
+
+Logical Operator
+AND, OR, NOT ------------ NAND, NOR, EXNOR, EXOR
+
+
+
+
+
+
+
+
+
